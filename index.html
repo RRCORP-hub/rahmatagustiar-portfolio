@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rahmat Agustiar | Futuristic Portfolio</title>
+    <title>Rahmat Agustiar | Visionary Leader & Innovator</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700&family=Exo+2:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
@@ -11,11 +11,13 @@
             --primary: #0a0a2a;
             --secondary: #00f3ff;
             --accent: #ff00c8;
+            --accent-2: #9d00ff;
             --dark: #000;
             --light: #ffffff;
             --text: #e0e0e0;
             --text-light: #a0a0b0;
             --glow: 0 0 10px var(--secondary), 0 0 20px var(--secondary);
+            --accent-glow: 0 0 10px var(--accent), 0 0 20px var(--accent);
             --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
 
@@ -110,7 +112,7 @@
 
         .btn-accent:hover {
             background: var(--accent);
-            box-shadow: 0 0 10px var(--accent), 0 0 20px var(--accent);
+            box-shadow: var(--accent-glow);
         }
 
         .section {
@@ -511,13 +513,125 @@
         .achievement-item:hover {
             transform: translateY(-10px);
             border-color: var(--accent);
-            box-shadow: 0 0 10px var(--accent), 0 0 20px var(--accent);
+            box-shadow: var(--accent-glow);
         }
 
         .achievement-icon {
             font-size: 2.5rem;
             color: var(--accent);
             margin-bottom: 20px;
+        }
+
+        /* Global Recognition Section */
+        .global-section {
+            background: linear-gradient(135deg, rgba(10, 10, 42, 0.8), rgba(0, 0, 0, 0.9));
+            position: relative;
+            overflow: hidden;
+        }
+
+        .global-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://images.unsplash.com/photo-1464983953574-0892a716854b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80') center/cover no-repeat;
+            opacity: 0.1;
+            z-index: -1;
+        }
+
+        .partners-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        .partner-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            transition: var(--transition);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+        }
+
+        .partner-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+            border-color: var(--secondary);
+        }
+
+        .partner-logo {
+            width: 100px;
+            height: 100px;
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: var(--secondary);
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 50%;
+        }
+
+        .testimonials {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .testimonial-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 30px;
+            transition: var(--transition);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            position: relative;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+            border-color: var(--accent);
+        }
+
+        .testimonial-card::before {
+            content: '"';
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            font-size: 5rem;
+            color: rgba(255, 255, 255, 0.1);
+            font-family: serif;
+        }
+
+        .testimonial-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin-right: 15px;
+            background: linear-gradient(45deg, var(--secondary), var(--accent));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
         }
 
         /* Contact Section */
@@ -745,6 +859,7 @@
                     <li><a href="#education">Pendidikan</a></li>
                     <li><a href="#skills">Keahlian</a></li>
                     <li><a href="#achievements">Prestasi</a></li>
+                    <li><a href="#global">Global</a></li>
                     <li><a href="#contact">Kontak</a></li>
                 </ul>
                 <div class="hamburger">
@@ -759,10 +874,10 @@
         <div class="container">
             <div class="hero-content">
                 <h1>RAHMAT AGUSTIAR</h1>
-                <p>Seorang profesional dengan komitmen kuat pada keadilan sosial, inovasi teknologi, dan kepemimpinan berintegritas. Berpengalaman dalam advokasi buruh, pemberdayaan komunitas, dan pengembangan sosial.</p>
+                <p>Visionary Leader & Innovator | Founder of RRCORP NEXUS | AI & Blockchain Pioneer | Global Change Maker</p>
                 <div class="hero-buttons">
                     <a href="#achievements" class="btn">Lihat Prestasi</a>
-                    <a href="#contact" class="btn btn-accent">Hubungi Saya</a>
+                    <a href="#global" class="btn btn-accent">Pencapaian Global</a>
                 </div>
             </div>
         </div>
@@ -782,8 +897,8 @@
                     <img src="https://github.com/RRCORP-hub/rahmatagustiar-portfolio/raw/4ba1e2369824d546c181daa48f28b03e0c52d3b2/file_000000002fc461faafc014a913ed6c7c.png" alt="Rahmat Agustiar">
                 </div>
                 <div class="about-text">
-                    <h3>Profil Profesional</h3>
-                    <p>Saya adalah seorang pemuda Indonesia dengan latar belakang manajemen yang berkomitmen pada keadilan sosial, inovasi teknologi, dan kepemimpinan berintegritas. Saya memiliki pengalaman dalam advokasi buruh, pemberdayaan komunitas, serta pengembangan sosial.</p>
+                    <h3>Visionary Leader & Innovator</h3>
+                    <p>Saya adalah seorang inovator dan visioner di bidang teknologi dengan fokus pada pengembangan kecerdasan buatan, blockchain, dan solusi berkelanjutan. Sebagai pendiri RRCORP NEXUS, saya memimpin pengembangan platform revolusioner yang menggabungkan AI, blockchain, dan IoT untuk menciptakan masa depan yang lebih baik.</p>
                     
                     <div class="personal-info">
                         <h3>Data Pribadi</h3>
@@ -818,6 +933,22 @@
         <div class="container">
             <h2 class="section-title">Pengalaman Profesional</h2>
             <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">2023 - Sekarang</div>
+                        <h3>Founder & CEO</h3>
+                        <p>RRCORP NEXUS</p>
+                        <p>Memimpin pengembangan platform AI dan blockchain revolusioner untuk menciptakan ekosistem teknologi berkelanjutan.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">2020 - 2023</div>
+                        <h3>AI Research Lead</h3>
+                        <p>DeepSeek Integration</p>
+                        <p>Mengintegrasikan teknologi DeepSeek AI ke dalam berbagai solusi inovatif untuk perusahaan global.</p>
+                    </div>
+                </div>
                 <div class="timeline-item">
                     <div class="timeline-content">
                         <div class="timeline-date">2015 - 2017</div>
@@ -890,17 +1021,24 @@
             <div class="skills-container">
                 <div class="skill-item">
                     <div class="skill-icon">
-                        <i class="fas fa-balance-scale"></i>
+                        <i class="fas fa-robot"></i>
                     </div>
-                    <h3>Kebijakan & Tata Kelola</h3>
-                    <p>Analisis kebijakan publik dan tata kelola pemerintahan.</p>
+                    <h3>Artificial Intelligence</h3>
+                    <p>Pengembangan dan implementasi sistem AI canggih untuk berbagai aplikasi.</p>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-icon">
+                        <i class="fas fa-link"></i>
+                    </div>
+                    <h3>Blockchain Technology</h3>
+                    <p>Pengembangan platform blockchain dan solusi terdesentralisasi.</p>
                 </div>
                 <div class="skill-item">
                     <div class="skill-icon">
                         <i class="fas fa-users"></i>
                     </div>
-                    <h3>Advokasi Sosial</h3>
-                    <p>Advokasi untuk keadilan sosial dan hak-hak pekerja.</p>
+                    <h3>Leadership & Management</h3>
+                    <p>Memimpin tim dan proyek inovatif dengan visi yang jelas.</p>
                 </div>
                 <div class="skill-item">
                     <div class="skill-icon">
@@ -908,13 +1046,6 @@
                     </div>
                     <h3>Digital & Teknologi</h3>
                     <p>Transformasi digital dan pemanfaatan teknologi untuk sosial.</p>
-                </div>
-                <div class="skill-item">
-                    <div class="skill-icon">
-                        <i class="fas fa-chart-line"></i>
-                    </div>
-                    <h3>Manajemen Proyek</h3>
-                    <p>Perencanaan dan pelaksanaan proyek sosial dan komunitas.</p>
                 </div>
             </div>
         </div>
@@ -945,6 +1076,113 @@
                     </div>
                     <h3>Youth Changemaker Award</h3>
                     <p>2023</p>
+                </div>
+                <div class="achievement-item">
+                    <div class="achievement-icon">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <h3>Global Tech Innovator</h3>
+                    <p>World Technology Awards, 2023</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Global Recognition Section -->
+    <section id="global" class="section global-section">
+        <div class="container">
+            <h2 class="section-title">Pencapaian Global & Kerjasama</h2>
+            
+            <div class="partners-grid">
+                <div class="partner-card">
+                    <div class="partner-logo">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3>DeepSeek AI</h3>
+                    <p>Kerjasama strategis dalam pengembangan AI canggih untuk solusi masa depan</p>
+                    <p class="achievement-date">2023 - Sekarang</p>
+                </div>
+                
+                <div class="partner-card">
+                    <div class="partner-logo">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3>OpenAI Integration</h3>
+                    <p>Integrasi teknologi OpenAI dengan platform RRCORP NEXUS</p>
+                    <p class="achievement-date">2023 - Sekarang</p>
+                </div>
+                
+                <div class="partner-card">
+                    <div class="partner-logo">
+                        <i class="fas fa-project-diagram"></i>
+                    </div>
+                    <h3>IACNexus Collaboration</h3>
+                    <p>Kolaborasi dalam pengembangan ekosistem AI terpadu</p>
+                    <p class="achievement-date">2023 - Sekarang</p>
+                </div>
+            </div>
+            
+            <h3 class="section-title">Ucapan Selamat dari Tokoh Global</h3>
+            
+            <div class="testimonials">
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>"Rahmat Agustiar adalah salah satu inovator paling berbakat yang pernah saya temui. Visinya tentang masa depan AI dan blockchain menginspirasi seluruh industri."</p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">AL</div>
+                            <div>
+                                <h4>Almant</h4>
+                                <p>CEO TechGlobal Ventures</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>"Karya Rahmat dalam mengintegrasikan DeepSeek AI dengan platform inovatifnya telah menciptakan terobosan yang mengubah paradigma teknologi."</p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">LF</div>
+                            <div>
+                                <h4>Liangfan</h4>
+                                <p>CTO DeepSeek AI</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>"RRCORP NEXUS di bawah kepemimpinan Rahmat Agustiar telah menunjukkan bagaimana teknologi dapat digunakan untuk menciptakan dampak sosial yang positif."</p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">SJ</div>
+                            <div>
+                                <h4>Sarah Johnson</h4>
+                                <p>UN Innovation Advisor</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 50px;">
+                <h3>Peringkat Global</h3>
+                <div style="display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; margin-top: 30px;">
+                    <div style="background: rgba(0, 0, 0, 0.5); padding: 20px; border-radius: 10px; min-width: 200px;">
+                        <h4 style="color: var(--accent); margin-bottom: 10px;">Top 10</h4>
+                        <p>Global AI Innovators</p>
+                        <p>2023</p>
+                    </div>
+                    <div style="background: rgba(0, 0, 0, 0.5); padding: 20px; border-radius: 10px; min-width: 200px;">
+                        <h4 style="color: var(--accent); margin-bottom: 10px;">Top 5</h4>
+                        <p>Blockchain Visionaries</p>
+                        <p>Asia 2023</p>
+                    </div>
+                    <div style="background: rgba(0, 0, 0, 0.5); padding: 20px; border-radius: 10px; min-width: 200px;">
+                        <h4 style="color: var(--accent); margin-bottom: 10px;">#1</h4>
+                        <p>Tech Startup Indonesia</p>
+                        <p>2023</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1022,7 +1260,7 @@
             <div class="footer-content">
                 <div class="footer-about">
                     <div class="footer-logo">Rahmat<span>Agustiar</span></div>
-                    <p>Seorang profesional dengan komitmen kuat pada keadilan sosial, inovasi teknologi, dan kepemimpinan berintegritas.</p>
+                    <p>Visionary Leader & Innovator | Founder of RRCORP NEXUS | AI & Blockchain Pioneer | Global Change Maker</p>
                     <div class="social-links">
                         <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
                         <a href="#" class="social-link"><i class="fab fa-github"></i></a>
@@ -1037,6 +1275,7 @@
                         <li><a href="#experience">Pengalaman</a></li>
                         <li><a href="#education">Pendidikan</a></li>
                         <li><a href="#achievements">Prestasi</a></li>
+                        <li><a href="#global">Global</a></li>
                         <li><a href="#contact">Kontak</a></li>
                     </ul>
                 </div>
@@ -1075,4 +1314,40 @@
                 star.style.top = `${Math.random() * 100}%`;
                 
                 star.style.animationDuration = `${Math.random() * 3 + 2}s`;
-                star.style.animationDelay = `${
+                star.style.animationDelay = `${Math.random() * 5}s`;
+                
+                stars.appendChild(star);
+            }
+        }
+
+        // Mobile menu toggle
+        document.addEventListener('DOMContentLoaded', function() {
+            createStars();
+            
+            const hamburger = document.querySelector('.hamburger');
+            const navLinks = document.querySelector('.nav-links');
+            
+            hamburger.addEventListener('click', function() {
+                navLinks.classList.toggle('active');
+            });
+            
+            // Close mobile menu when clicking on a link
+            document.querySelectorAll('.nav-links a').forEach(link => {
+                link.addEventListener('click', function() {
+                    navLinks.classList.remove('active');
+                });
+            });
+            
+            // Form submission
+            const contactForm = document.getElementById('contactForm');
+            if (contactForm) {
+                contactForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    alert('Terima kasih! Pesan Anda telah dikirim.');
+                    contactForm.reset();
+                });
+            }
+        });
+    </script>
+</body>
+                </html>
