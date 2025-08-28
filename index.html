@@ -1,123 +1,1078 @@
 <!DOCTYPE html>
-<html lang="en" class="dark">
+<html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Rahmat Agustiar – Global Portfolio</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
-  <style>
-    body { font-family: 'Inter', sans-serif; }
-    h1, h2, h3 { font-family: 'Orbitron', sans-serif; }
-    .glass {
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      backdrop-filter: blur(12px);
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rahmat Agustiar | Futuristic Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700&family=Exo+2:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #0a0a2a;
+            --secondary: #00f3ff;
+            --accent: #ff00c8;
+            --dark: #000;
+            --light: #ffffff;
+            --text: #e0e0e0;
+            --text-light: #a0a0b0;
+            --glow: 0 0 10px var(--secondary), 0 0 20px var(--secondary);
+            --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Exo 2', sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background-color: var(--dark);
+            overflow-x: hidden;
+            background: radial-gradient(circle at center, #0a0a2a 0%, #000000 70%);
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+            color: var(--light);
+            text-shadow: var(--glow);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background: transparent;
+            color: var(--secondary);
+            border: 2px solid var(--secondary);
+            border-radius: 5px;
+            font-weight: 600;
+            transition: var(--transition);
+            font-family: 'Orbitron', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(0, 243, 255, 0.3), transparent);
+            transition: var(--transition);
+            z-index: -1;
+        }
+
+        .btn:hover {
+            color: var(--dark);
+            background: var(--secondary);
+            box-shadow: var(--glow);
+            transform: translateY(-5px);
+        }
+
+        .btn:hover::before {
+            left: 100%;
+        }
+
+        .btn-accent {
+            color: var(--accent);
+            border-color: var(--accent);
+        }
+
+        .btn-accent:hover {
+            background: var(--accent);
+            box-shadow: 0 0 10px var(--accent), 0 0 20px var(--accent);
+        }
+
+        .section {
+            padding: 100px 0;
+            position: relative;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 70px;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--secondary), var(--accent));
+            margin: 20px auto;
+            border-radius: 2px;
+        }
+
+        /* Stars Background */
+        .stars {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+            pointer-events: none;
+        }
+
+        .star {
+            position: absolute;
+            background: white;
+            border-radius: 50%;
+            animation: twinkle linear infinite;
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.2; }
+            50% { opacity: 1; }
+        }
+
+        /* Header & Navigation */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(10, 10, 42, 0.8);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+            transition: var(--transition);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+
+        .logo {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--light);
+            text-shadow: var(--glow);
+        }
+
+        .logo span {
+            color: var(--secondary);
+        }
+
+        .nav-links {
+            display: flex;
+        }
+
+        .nav-links li {
+            margin-left: 30px;
+        }
+
+        .nav-links a {
+            font-weight: 600;
+            transition: var(--transition);
+            position: relative;
+            padding: 5px 0;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--secondary);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover {
+            color: var(--secondary);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            color: var(--light);
+            font-size: 1.5rem;
+        }
+
+        /* Video Background */
+        .video-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -3;
+            overflow: hidden;
+        }
+
+        .video-background video {
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            opacity: 0.15;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding-top: 180px;
+            padding-bottom: 100px;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            background: linear-gradient(45deg, var(--secondary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 20px rgba(0, 243, 255, 0.5);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            opacity: 0.9;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        /* Floating Robot */
+        .floating-robot {
+            position: absolute;
+            width: 150px;
+            height: 150px;
+            bottom: 50px;
+            right: 50px;
+            animation: float 6s ease-in-out infinite;
+            z-index: 5;
+            filter: drop-shadow(0 0 10px var(--secondary));
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(5deg); }
+        }
+
+        /* About Section */
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+
+        .profile-img {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            position: relative;
+        }
+
+        .profile-img img {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--secondary);
+            box-shadow: var(--glow);
+            position: relative;
+            z-index: 2;
+        }
+
+        .profile-img::before {
+            content: '';
+            position: absolute;
+            width: 320px;
+            height: 320px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, var(--secondary), var(--accent));
+            animation: rotate 10s linear infinite;
+            z-index: 1;
+        }
+
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .about-text {
+            flex: 1;
+        }
+
+        .personal-info {
+            margin-top: 30px;
+        }
+
+        .info-item {
+            display: flex;
+            margin-bottom: 15px;
+            border-bottom: 1px solid rgba(0, 243, 255, 0.2);
+            padding-bottom: 10px;
+        }
+
+        .info-label {
+            min-width: 150px;
+            font-weight: 600;
+            color: var(--secondary);
+        }
+
+        /* Skills Section */
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .skill-item {
+            background: rgba(10, 10, 42, 0.6);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            transition: var(--transition);
+            border: 1px solid rgba(0, 243, 255, 0.2);
+            backdrop-filter: blur(5px);
+        }
+
+        .skill-item:hover {
+            transform: translateY(-10px);
+            border-color: var(--secondary);
+            box-shadow: var(--glow);
+        }
+
+        .skill-icon {
+            font-size: 2.5rem;
+            color: var(--secondary);
+            margin-bottom: 20px;
+        }
+
+        /* Timeline */
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 6px;
+            background: linear-gradient(to bottom, var(--secondary), var(--accent));
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -3px;
+        }
+
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            width: 50%;
+            box-sizing: border-box;
+        }
+
+        .timeline-item:nth-child(odd) {
+            left: 0;
+        }
+
+        .timeline-item:nth-child(even) {
+            left: 50%;
+        }
+
+        .timeline-content {
+            padding: 20px;
+            background: rgba(10, 10, 42, 0.6);
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(0, 243, 255, 0.2);
+            backdrop-filter: blur(5px);
+            transition: var(--transition);
+        }
+
+        .timeline-content:hover {
+            border-color: var(--secondary);
+            box-shadow: var(--glow);
+        }
+
+        .timeline-date {
+            font-weight: 600;
+            color: var(--secondary);
+            margin-bottom: 10px;
+        }
+
+        /* Education Section */
+        .education-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .education-item {
+            background: rgba(10, 10, 42, 0.6);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            transition: var(--transition);
+            border: 1px solid rgba(0, 243, 255, 0.2);
+            text-align: center;
+            backdrop-filter: blur(5px);
+        }
+
+        .education-item:hover {
+            transform: translateY(-10px);
+            border-color: var(--secondary);
+            box-shadow: var(--glow);
+        }
+
+        .education-icon {
+            font-size: 2.5rem;
+            color: var(--secondary);
+            margin-bottom: 20px;
+        }
+
+        /* Achievements Section */
+        .achievements-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .achievement-item {
+            background: rgba(10, 10, 42, 0.6);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            transition: var(--transition);
+            border: 1px solid rgba(0, 243, 255, 0.2);
+            backdrop-filter: blur(5px);
+        }
+
+        .achievement-item:hover {
+            transform: translateY(-10px);
+            border-color: var(--accent);
+            box-shadow: 0 0 10px var(--accent), 0 0 20px var(--accent);
+        }
+
+        .achievement-icon {
+            font-size: 2.5rem;
+            color: var(--accent);
+            margin-bottom: 20px;
+        }
+
+        /* Contact Section */
+        .contact-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 50px;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--secondary);
+            color: var(--dark);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            box-shadow: var(--glow);
+        }
+
+        .contact-form {
+            background: rgba(10, 10, 42, 0.6);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(0, 243, 255, 0.2);
+            backdrop-filter: blur(5px);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--secondary);
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(0, 243, 255, 0.3);
+            border-radius: 5px;
+            font-family: inherit;
+            font-size: 1rem;
+            color: var(--light);
+            transition: var(--transition);
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--secondary);
+            box-shadow: var(--glow);
+        }
+
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        /* Footer */
+        footer {
+            background: rgba(10, 10, 42, 0.9);
+            color: white;
+            padding: 50px 0 20px;
+            border-top: 1px solid rgba(0, 243, 255, 0.3);
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-logo {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 800;
+            margin-bottom: 15px;
+            color: var(--light);
+            text-shadow: var(--glow);
+        }
+
+        .footer-logo span {
+            color: var(--secondary);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(0, 243, 255, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+        }
+
+        .social-link:hover {
+            background: var(--secondary);
+            color: var(--dark);
+            box-shadow: var(--glow);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .about-content {
+                flex-direction: column;
+            }
+            
+            .profile-img, .about-text {
+                flex: none;
+                width: 100%;
+            }
+            
+            .timeline::after {
+                left: 31px;
+            }
+            
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+            
+            .timeline-item:nth-child(even) {
+                left: 0;
+            }
+
+            .hero h1 {
+                font-size: 3rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: rgba(10, 10, 42, 0.95);
+                flex-direction: column;
+                padding: 20px;
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            }
+            
+            .nav-links.active {
+                display: flex;
+            }
+            
+            .nav-links li {
+                margin: 15px 0;
+            }
+            
+            .hamburger {
+                display: block;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .floating-robot {
+                display: none;
+            }
+        }
+    </style>
 </head>
-<body class="bg-gray-50 dark:bg-gray-900 dark:text-gray-200 transition-colors duration-500">
+<body>
+    <!-- Stars Background -->
+    <div class="stars" id="stars"></div>
 
-  <!-- Toggle Theme Button -->
-  <div class="fixed top-4 right-4">
-    <button id="themeToggle" class="px-4 py-2 rounded-xl glass text-white dark:text-yellow-400">
-      🌞 / 🌙
-    </button>
-  </div>
-
-  <!-- Header -->
-  <header class="text-center py-12 bg-gradient-to-r from-blue-900 via-purple-800 to-indigo-900 shadow-lg dark:from-gray-800 dark:via-gray-700 dark:to-gray-900">
-    <img src="https://github.com/RRCORP-hub/rahmatagustiar-portfolio/blob/4ba1e2369824d546c181daa48f28b03e0c52d3b2/file_000000002fc461faafc014a913ed6c7c.png?raw=true" 
-         alt="Rahmat Agustiar" 
-         class="mx-auto rounded-full w-40 h-40 object-cover shadow-2xl border-4 border-white dark:border-yellow-400">
-    <h1 class="text-4xl md:text-5xl font-bold mt-6 text-white dark:text-yellow-400">Rahmat Agustiar</h1>
-    <p class="mt-2 text-lg text-gray-200 dark:text-gray-300 italic">“Kesempatan Setara, Indonesia Emas.”</p>
-  </header>
-
-  <!-- About -->
-  <section class="max-w-5xl mx-auto px-6 py-12">
-    <div class="glass p-8 rounded-2xl shadow-xl">
-      <h2 class="text-3xl font-bold text-blue-500 dark:text-yellow-400 mb-4">About Me</h2>
-      <p class="leading-relaxed">
-        Dari anak seorang buruh di Aceh hingga menjadi penggerak perubahan, 
-        saya berkomitmen membangun Indonesia dengan keadilan, integritas, dan inovasi. 
-        Visi saya sederhana: setiap anak bangsa harus punya kesempatan yang sama untuk sukses.
-      </p>
-    </div>
-  </section>
-
-  <!-- Education & Experience -->
-  <section class="max-w-5xl mx-auto px-6 py-12 grid md:grid-cols-2 gap-8">
-    <div class="glass p-8 rounded-2xl">
-      <h2 class="text-2xl font-bold text-purple-500 dark:text-green-400 mb-4">Education</h2>
-      <ul class="space-y-3">
-        <li><strong>2000 – 2006:</strong> SD Negeri Tanah Merah, Aceh Tamiang</li>
-        <li><strong>2006 – 2009:</strong> SMP Negeri 1 Seruway</li>
-        <li><strong>2009 – 2012:</strong> SMA Negeri Seruway, IPA</li>
-        <li><strong>2012 – 2016:</strong> S1 Administrasi Publik, UIN Sumatera Utara</li>
-        <li><strong>2020+:</strong> Coursera & edX (Public Policy, Digital Governance, AI for Social Good)</li>
-      </ul>
+    <!-- Video Background -->
+    <div class="video-background">
+        <video autoplay muted loop>
+            <source src="https://assets.mixkit.co/videos/preview/mixkit-abstract-digital-waves-9885-large.mp4" type="video/mp4">
+        </video>
     </div>
 
-    <div class="glass p-8 rounded-2xl">
-      <h2 class="text-2xl font-bold text-purple-500 dark:text-green-400 mb-4">Experience</h2>
-      <ul class="space-y-3">
-        <li><strong>2015 – 2017:</strong> Koordinator Komunitas Buruh Lokal</li>
-        <li><strong>2017 – 2020:</strong> Penggerak Sosial & Digitalisasi Komunitas</li>
-        <li><strong>2021 – Sekarang:</strong> Founder & Director – RR.CORP Social Hub</li>
-      </ul>
-    </div>
-  </section>
+    <!-- Header & Navigation -->
+    <header>
+        <div class="container">
+            <nav>
+                <a href="#" class="logo">Rahmat<span>Agustiar</span></a>
+                <ul class="nav-links">
+                    <li><a href="#home">Beranda</a></li>
+                    <li><a href="#about">Tentang</a></li>
+                    <li><a href="#experience">Pengalaman</a></li>
+                    <li><a href="#education">Pendidikan</a></li>
+                    <li><a href="#skills">Keahlian</a></li>
+                    <li><a href="#achievements">Prestasi</a></li>
+                    <li><a href="#contact">Kontak</a></li>
+                </ul>
+                <div class="hamburger">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
 
-  <!-- Achievements -->
-  <section class="max-w-5xl mx-auto px-6 py-12">
-    <div class="glass p-8 rounded-2xl shadow-lg">
-      <h2 class="text-3xl font-bold text-green-400 mb-6">Key Achievements</h2>
-      <ul class="space-y-4">
-        <li>🏆 <strong>OpenAI Global Recognition Award 2024</strong> – Nobel-equivalent in AI Innovation</li>
-        <li>🌍 Finalist – UNDP Innovation for Equality Challenge (2022)</li>
-        <li>🔥 Youth Changemaker Award (2023)</li>
-        <li>🎓 ASEAN Youth Digital Governance Forum Delegate (2022)</li>
-      </ul>
-    </div>
-  </section>
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>RAHMAT AGUSTIAR</h1>
+                <p>Seorang profesional dengan komitmen kuat pada keadilan sosial, inovasi teknologi, dan kepemimpinan berintegritas. Berpengalaman dalam advokasi buruh, pemberdayaan komunitas, dan pengembangan sosial.</p>
+                <div class="hero-buttons">
+                    <a href="#achievements" class="btn">Lihat Prestasi</a>
+                    <a href="#contact" class="btn btn-accent">Hubungi Saya</a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Floating Robot -->
+        <div class="floating-robot">
+            <img src="https://cdn.pixabay.com/animation/2023/03/20/02/45/02-45-11-186_512.gif" alt="Floating Robot">
+        </div>
+    </section>
 
-  <!-- Skills -->
-  <section class="max-w-5xl mx-auto px-6 py-12">
-    <div class="glass p-8 rounded-2xl">
-      <h2 class="text-3xl font-bold text-yellow-400 mb-4">Skills</h2>
-      <p><strong>Policy & Governance:</strong> Kebijakan publik, advokasi sosial.</p>
-      <p><strong>Digital & Tech:</strong> AI for Social Good, Blockchain transparency.</p>
-      <p><strong>Leadership:</strong> Community building, negotiation, public speaking.</p>
-      <p><strong>Languages:</strong> Bahasa Indonesia (Native), English (Fluent).</p>
-    </div>
-  </section>
+    <!-- About Section -->
+    <section id="about" class="section">
+        <div class="container">
+            <h2 class="section-title">Tentang Saya</h2>
+            <div class="about-content">
+                <div class="profile-img">
+                    <img src="https://github.com/RRCORP-hub/rahmatagustiar-portfolio/raw/4ba1e2369824d546c181daa48f28b03e0c52d3b2/file_000000002fc461faafc014a913ed6c7c.png" alt="Rahmat Agustiar">
+                </div>
+                <div class="about-text">
+                    <h3>Profil Profesional</h3>
+                    <p>Saya adalah seorang pemuda Indonesia dengan latar belakang manajemen yang berkomitmen pada keadilan sosial, inovasi teknologi, dan kepemimpinan berintegritas. Saya memiliki pengalaman dalam advokasi buruh, pemberdayaan komunitas, serta pengembangan sosial.</p>
+                    
+                    <div class="personal-info">
+                        <h3>Data Pribadi</h3>
+                        <div class="info-item">
+                            <span class="info-label">Nama Lengkap</span>
+                            <span>Rahmat Agustiar</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">Tempat, Tanggal Lahir</span>
+                            <span>IT Agus, 1994</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">Alamat</span>
+                            <span>JL Jagakarsa Ciganjur No: 52, Jakarta Selatan</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">Telepon</span>
+                            <span>0877 7111 4855</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">Email</span>
+                            <span>rahmat@outerofficial@protommail.com</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  <!-- Contact -->
-  <section class="max-w-5xl mx-auto px-6 py-12 text-center">
-    <h2 class="text-3xl font-bold text-blue-400 dark:text-yellow-300 mb-6">Get in Touch</h2>
-    <p class="mb-4">📍 Jakarta, Indonesia</p>
-    <p class="mb-4">📧 <a href="mailto:rahmatagustiarofficial@protonmail.com" class="text-blue-400 hover:underline dark:text-yellow-300">rahmatagustiarofficial@protonmail.com</a></p>
-    <p class="mb-4">📱 0877 7111 4335</p>
-    <div class="flex justify-center space-x-6 mt-6">
-      <a href="https://linkedin.com/in/rahmatagustiar" target="_blank" class="text-blue-400 hover:text-white dark:text-yellow-400">LinkedIn</a>
-      <a href="https://github.com/RRCORP-hub" target="_blank" class="text-blue-400 hover:text-white dark:text-yellow-400">GitHub</a>
-      <a href="https://x.com/Companyrrcorp" target="_blank" class="text-blue-400 hover:text-white dark:text-yellow-400">Twitter/X</a>
-    </div>
-  </section>
+    <!-- Experience Section -->
+    <section id="experience" class="section" style="background: rgba(0, 0, 0, 0.3);">
+        <div class="container">
+            <h2 class="section-title">Pengalaman Profesional</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">2015 - 2017</div>
+                        <h3>Community Coordinator</h3>
+                        <p>Local Labor Aesh - Jakarta</p>
+                        <p>Mengadvokasi hak-hak pekerja perkebunan dan buruh migran.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">2006 - 2009</div>
+                        <h3>Penggerak Sosial Digitalisasi Komunitas</h3>
+                        <p>Jakarta</p>
+                        <p>Memberikan transformasi digital untuk komunitas dan akses terhadap teknologi.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  <!-- Footer -->
-  <footer class="text-center py-6 border-t border-gray-700 text-gray-600 dark:text-gray-400">
-    © 2025 Rahmat Agustiar | Built with ❤ Futuristic Vision
-  </footer>
+    <!-- Education Section -->
+    <section id="education" class="section">
+        <div class="container">
+            <h2 class="section-title">Pendidikan</h2>
+            <div class="education-container">
+                <div class="education-item">
+                    <div class="education-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3>SD Negeri 2 Seruway</h3>
+                    <p>2000 - 2006</p>
+                </div>
+                <div class="education-item">
+                    <div class="education-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3>SMP Negeri 1 Seruway</h3>
+                    <p>2006 - 2009</p>
+                </div>
+                <div class="education-item">
+                    <div class="education-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3>SMA Negeri Seruway</h3>
+                    <p>2009 - 2012</p>
+                </div>
+                <div class="education-item">
+                    <div class="education-icon">
+                        <i class="fas fa-university"></i>
+                    </div>
+                    <h3>UIN Sumatera Utara, Medan</h3>
+                    <p>2012 - 2016</p>
+                </div>
+                <div class="education-item">
+                    <div class="education-icon">
+                        <i class="fas fa-certificate"></i>
+                    </div>
+                    <h3>Coursera & edX</h3>
+                    <p>Public Policy, Digital Governance, AI for Social Good</p>
+                    <p>2020</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  <!-- Script Toggle -->
-  <script>
-    const html = document.documentElement;
-    const toggleBtn = document.getElementById("themeToggle");
-    toggleBtn.addEventListener("click", () => {
-      html.classList.toggle("dark");
-    });
-  </script>
-</body>
-</html>
+    <!-- Skills Section -->
+    <section id="skills" class="section" style="background: rgba(0, 0, 0, 0.3);">
+        <div class="container">
+            <h2 class="section-title">Keahlian</h2>
+            <div class="skills-container">
+                <div class="skill-item">
+                    <div class="skill-icon">
+                        <i class="fas fa-balance-scale"></i>
+                    </div>
+                    <h3>Kebijakan & Tata Kelola</h3>
+                    <p>Analisis kebijakan publik dan tata kelola pemerintahan.</p>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Advokasi Sosial</h3>
+                    <p>Advokasi untuk keadilan sosial dan hak-hak pekerja.</p>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-icon">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <h3>Digital & Teknologi</h3>
+                    <p>Transformasi digital dan pemanfaatan teknologi untuk sosial.</p>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Manajemen Proyek</h3>
+                    <p>Perencanaan dan pelaksanaan proyek sosial dan komunitas.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Achievements Section -->
+    <section id="achievements" class="section">
+        <div class="container">
+            <h2 class="section-title">Prestasi & Sertifikasi</h2>
+            <div class="achievements-container">
+                <div class="achievement-item">
+                    <div class="achievement-icon">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <h3>Finalist Innovation for Equality Idea</h3>
+                    <p>UNDP, 2022</p>
+                </div>
+                <div class="achievement-item">
+                    <div class="achievement-icon">
+                        <i class="fas fa-award"></i>
+                    </div>
+                    <h3>AI for Social Good Certification</h3>
+                    <p>2021</p>
+                </div>
+                <div class="achievement-item">
+                    <div class="achievement-icon">
+                        <i class="fas fa-medal"></i>
+                    </div>
+                    <h3>Youth Changemaker Award</h3>
+                    <p>2023</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section" style="background: rgba(0, 0, 0, 0.3);">
+        <div class="container">
+            <h2 class="section-title">Hubungi Saya</h2>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Mari Berbicara</h3>
+                    <p>Silakan hubungi saya melalui informasi kontak di bawah ini atau isi formulir yang tersedia.</p>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div>
+                            <h4>Lokasi</h4>
+                            <p>Jakarta, Indonesia</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div>
+                            <h4>Email</h4>
+                            <p>rahmat@outerofficial@protommail.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div>
+                            <h4>Telepon</h4>
+                            <p>+62 877 7111 4855</p>
+                        </div>
+                    </div>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Nama Lengkap</label>
+                            <input type="text" id="name" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Subjek</label>
+                            <input type="text" id="subject" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Pesan</label>
+                            <textarea id="message" class="form-control" required></textarea>
+                        </div>
+                        <button type="submit" class="btn">Kirim Pesan</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <div class="footer-logo">Rahmat<span>Agustiar</span></div>
+                    <p>Seorang profesional dengan komitmen kuat pada keadilan sosial, inovasi teknologi, dan kepemimpinan berintegritas.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h3>Tautan Cepat</h3>
+                    <ul>
+                        <li><a href="#home">Beranda</a></li>
+                        <li><a href="#about">Tentang</a></li>
+                        <li><a href="#experience">Pengalaman</a></li>
+                        <li><a href="#education">Pendidikan</a></li>
+                        <li><a href="#achievements">Prestasi</a></li>
+                        <li><a href="#contact">Kontak</a></li>
+                    </ul>
+                </div>
+                <div class="footer-newsletter">
+                    <h3>Berlangganan Newsletter</h3>
+                    <p>Dapatkan update terbaru tentang aktivitas dan proyek saya.</p>
+                    <form>
+                        <div class="form-group">
+                            <input type="email" class="form-control" placeholder="Masukkan email Anda" required>
+                        </div>
+                        <button type="submit" class="btn">Berlangganan</button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 Rahmat Agustiar. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Create stars background
+        function createStars() {
+            const stars = document.getElementById('stars');
+            const starsCount = 200;
+            
+            for (let i = 0; i < starsCount; i++) {
+                const star = document.createElement('div');
+                star.classList.add('star');
+                
+                const size = Math.random() * 3;
+                star.style.width = `${size}px`;
+                star.style.height = `${size}px`;
+                
+                star.style.left = `${Math.random() * 100}%`;
+                star.style.top = `${Math.random() * 100}%`;
+                
+                star.style.animationDuration = `${Math.random() * 3 + 2}s`;
+                star.style.animationDelay = `${
