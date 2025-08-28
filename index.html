@@ -6,6 +6,7 @@
     <title>Rahmat Agustiar | Visionary Leader & Innovator</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700&family=Exo+2:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <style>
         :root {
             --primary: #0a0a2a;
@@ -136,27 +137,42 @@
             border-radius: 2px;
         }
 
-        /* Stars Background */
-        .stars {
+        /* Particles Background */
+        #particles-js {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+        }
+
+        /* Preloader */
+        .preloader {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            z-index: -2;
-            pointer-events: none;
+            background: var(--dark);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            flex-direction: column;
         }
 
-        .star {
-            position: absolute;
-            background: white;
+        .preloader-spinner {
+            width: 70px;
+            height: 70px;
+            border: 5px solid rgba(0, 243, 255, 0.2);
             border-radius: 50%;
-            animation: twinkle linear infinite;
+            border-top-color: var(--secondary);
+            animation: spin 1s linear infinite;
+            margin-bottom: 20px;
         }
 
-        @keyframes twinkle {
-            0%, 100% { opacity: 0.2; }
-            50% { opacity: 1; }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
         }
 
         /* Header & Navigation */
@@ -170,6 +186,11 @@
             backdrop-filter: blur(10px);
             box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
             transition: var(--transition);
+        }
+
+        header.scrolled {
+            padding: 10px 0;
+            background: rgba(10, 10, 42, 0.95);
         }
 
         nav {
@@ -522,91 +543,6 @@
             margin-bottom: 20px;
         }
 
-        /* Projects Section */
-        .projects-section {
-            background: linear-gradient(135deg, rgba(10, 10, 42, 0.8), rgba(0, 0, 0, 0.9));
-            position: relative;
-            overflow: hidden;
-        }
-
-        .projects-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url('https://images.unsplash.com/photo-1464983953574-0892a716854b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80') center/cover no-repeat;
-            opacity: 0.1;
-            z-index: -1;
-        }
-
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 40px;
-        }
-
-        .project-card {
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 15px;
-            padding: 30px;
-            text-align: center;
-            transition: var(--transition);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .project-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 5px;
-            background: linear-gradient(90deg, var(--secondary), var(--accent));
-        }
-
-        .project-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
-            border-color: var(--secondary);
-        }
-
-        .project-logo {
-            width: 100px;
-            height: 100px;
-            margin: 0 auto 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 3rem;
-            color: var(--secondary);
-            background: rgba(0, 0, 0, 0.2);
-            border-radius: 50%;
-        }
-
-        .project-features {
-            margin: 20px 0;
-            text-align: left;
-        }
-
-        .project-features li {
-            margin-bottom: 10px;
-            position: relative;
-            padding-left: 25px;
-        }
-
-        .project-features li::before {
-            content: '✓';
-            position: absolute;
-            left: 0;
-            color: var(--secondary);
-            font-weight: bold;
-        }
-
         /* Global Recognition Section */
         .global-section {
             background: linear-gradient(135deg, rgba(10, 10, 42, 0.8), rgba(0, 0, 0, 0.9));
@@ -826,7 +762,6 @@
             display: flex;
             gap: 15px;
             margin-top: 20px;
-            justify-content: center;
         }
 
         .social-link {
@@ -850,6 +785,127 @@
             text-align: center;
             padding-top: 20px;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* AI Assistant */
+        .ai-assistant {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(45deg, var(--secondary), var(--accent));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            z-index: 999;
+            box-shadow: 0 5px 15px rgba(0, 243, 255, 0.5);
+            transition: var(--transition);
+        }
+
+        .ai-assistant:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 20px rgba(0, 243, 255, 0.7);
+        }
+
+        .ai-chat-container {
+            position: fixed;
+            bottom: 100px;
+            right: 30px;
+            width: 350px;
+            height: 450px;
+            background: rgba(10, 10, 42, 0.95);
+            border-radius: 15px;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.5);
+            border: 1px solid var(--secondary);
+            z-index: 998;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            backdrop-filter: blur(10px);
+            transform: translateY(20px);
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+        }
+
+        .ai-chat-container.active {
+            transform: translateY(0);
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .chat-header {
+            padding: 15px;
+            background: linear-gradient(90deg, var(--secondary), var(--accent));
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .chat-messages {
+            flex: 1;
+            padding: 15px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .message {
+            padding: 10px 15px;
+            border-radius: 10px;
+            max-width: 80%;
+            animation: messageAppear 0.3s ease-out;
+        }
+
+        @keyframes messageAppear {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .ai-message {
+            background: rgba(0, 243, 255, 0.15);
+            border-left: 3px solid var(--secondary);
+            align-self: flex-start;
+        }
+
+        .user-message {
+            background: rgba(255, 0, 200, 0.15);
+            border-right: 3px solid var(--accent);
+            align-self: flex-end;
+        }
+
+        .chat-input {
+            display: flex;
+            padding: 15px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .chat-input input {
+            flex: 1;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 10px 15px;
+            color: white;
+            margin-right: 10px;
+            font-family: 'Exo 2', sans-serif;
+        }
+
+        .chat-input button {
+            background: linear-gradient(90deg, var(--secondary), var(--accent));
+            border: none;
+            border-radius: 20px;
+            padding: 10px 15px;
+            color: white;
+            cursor: pointer;
+            font-family: 'Exo 2', sans-serif;
         }
 
         /* Responsive Design */
@@ -919,16 +975,24 @@
             .floating-robot {
                 display: none;
             }
-            
-            .projects-grid {
-                grid-template-columns: 1fr;
+
+            .ai-chat-container {
+                width: 90%;
+                right: 5%;
+                left: 5%;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Stars Background -->
-    <div class="stars" id="stars"></div>
+    <!-- Preloader -->
+    <div class="preloader" id="preloader">
+        <div class="preloader-spinner"></div>
+        <p>Loading Future Vision...</p>
+    </div>
+
+    <!-- Particles Background -->
+    <div id="particles-js"></div>
 
     <!-- Video Background -->
     <div class="video-background">
@@ -938,14 +1002,13 @@
     </div>
 
     <!-- Header & Navigation -->
-    <header>
+    <header id="header">
         <div class="container">
             <nav>
                 <a href="#" class="logo">Rahmat<span>Agustiar</span></a>
                 <ul class="nav-links">
                     <li><a href="#home">Beranda</a></li>
                     <li><a href="#about">Tentang</a></li>
-                    <li><a href="#projects">Proyek</a></li>
                     <li><a href="#experience">Pengalaman</a></li>
                     <li><a href="#education">Pendidikan</a></li>
                     <li><a href="#skills">Keahlian</a></li>
@@ -967,7 +1030,7 @@
                 <h1>RAHMAT AGUSTIAR</h1>
                 <p>Visionary Leader & Innovator | Founder of RRCORP NEXUS | AI & Blockchain Pioneer | Global Change Maker</p>
                 <div class="hero-buttons">
-                    <a href="#projects" class="btn">Lihat Proyek</a>
+                    <a href="#achievements" class="btn">Lihat Prestasi</a>
                     <a href="#global" class="btn btn-accent">Pencapaian Global</a>
                 </div>
             </div>
@@ -1019,57 +1082,6 @@
         </div>
     </section>
 
-    <!-- Projects Section -->
-    <section id="projects" class="section projects-section">
-        <div class="container">
-            <h2 class="section-title">Proyek Utama</h2>
-            
-            <div class="projects-grid">
-                <div class="project-card">
-                    <div class="project-logo">
-                        <i class="fas fa-robot"></i>
-                    </div>
-                    <h3>RRCORP NEXUS</h3>
-                    <p>Platform AI revolusioner yang menggabungkan kecerdasan buatan, blockchain, dan IoT untuk menciptakan ekosistem teknologi berkelanjutan.</p>
-                    
-                    <div class="project-features">
-                        <h4>Fitur Utama:</h4>
-                        <ul>
-                            <li>Integrasi DeepSeek AI untuk analisis data canggih</li>
-                            <li>Teknologi blockchain untuk keamanan dan transparansi</li>
-                            <li>IoT connectivity untuk monitoring real-time</li>
-                            <li>Dashboard analytics yang komprehensif</li>
-                            <li>API untuk integrasi dengan sistem lain</li>
-                        </ul>
-                    </div>
-                    
-                    <a href="https://rrcorp-nexus.netlify.app" class="btn" target="_blank">Kunjungi Website</a>
-                </div>
-                
-                <div class="project-card">
-                    <div class="project-logo">
-                        <i class="fas fa-globe"></i>
-                    </div>
-                    <h3>IACNexus</h3>
-                    <p>Platform kolaborasi global untuk inovasi AI yang menghubungkan peneliti, developer, dan perusahaan dari seluruh dunia.</p>
-                    
-                    <div class="project-features">
-                        <h4>Fitur Utama:</h4>
-                        <ul>
-                            <li>Marketplace untuk model AI dan dataset</li>
-                            <li>Komunitas global AI researchers</li>
-                            <li>Hackathon dan kompetisi AI regularly</li>
-                            <li>Learning resources dan tutorial</li>
-                            <li>Collaboration tools untuk tim distributed</li>
-                        </ul>
-                    </div>
-                    
-                    <a href="https://iacnnexus.netlify.app" class="btn" target="_blank">Kunjungi Website</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- Experience Section -->
     <section id="experience" class="section" style="background: rgba(0, 0, 0, 0.3);">
         <div class="container">
@@ -1081,14 +1093,6 @@
                         <h3>Founder & CEO</h3>
                         <p>RRCORP NEXUS</p>
                         <p>Memimpin pengembangan platform AI dan blockchain revolusioner untuk menciptakan ekosistem teknologi berkelanjutan.</p>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <div class="timeline-date">2023 - Sekarang</div>
-                        <h3>Lead Developer</h3>
-                        <p>IACNexus</p>
-                        <p>Mengembangkan platform kolaborasi global untuk inovasi AI dan penelitian kecerdasan buatan.</p>
                     </div>
                 </div>
                 <div class="timeline-item">
@@ -1105,6 +1109,14 @@
                         <h3>Community Coordinator</h3>
                         <p>Local Labor Aesh - Jakarta</p>
                         <p>Mengadvokasi hak-hak pekerja perkebunan dan buruh migran.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">2006 - 2009</div>
+                        <h3>Penggerak Sosial Digitalisasi Komunitas</h3>
+                        <p>Jakarta</p>
+                        <p>Memberikan transformasi digital untuk komunitas dan akses terhadap teknologi.</p>
                     </div>
                 </div>
             </div>
@@ -1187,7 +1199,7 @@
                         <i class="fas fa-laptop-code"></i>
                     </div>
                     <h3>Digital & Teknologi</h3>
-                    <p>Transformasi digital и pemanfaatan teknologi untuk sosial.</p>
+                    <p>Transformasi digital dan pemanfaatan teknologi untuk sosial.</p>
                 </div>
             </div>
         </div>
@@ -1369,7 +1381,6 @@
                         <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
                         <a href="#" class="social-link"><i class="fab fa-github"></i></a>
                         <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
                     </div>
                 </div>
                 <div class="contact-form">
@@ -1404,13 +1415,17 @@
                 <div class="footer-about">
                     <div class="footer-logo">Rahmat<span>Agustiar</span></div>
                     <p>Visionary Leader & Innovator | Founder of RRCORP NEXUS | AI & Blockchain Pioneer | Global Change Maker</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                    </div>
                 </div>
                 <div class="footer-links">
                     <h3>Tautan Cepat</h3>
                     <ul>
                         <li><a href="#home">Beranda</a></li>
                         <li><a href="#about">Tentang</a></li>
-                        <li><a href="#projects">Proyek</a></li>
                         <li><a href="#experience">Pengalaman</a></li>
                         <li><a href="#education">Pendidikan</a></li>
                         <li><a href="#achievements">Prestasi</a></li>
@@ -1418,21 +1433,16 @@
                         <li><a href="#contact">Kontak</a></li>
                     </ul>
                 </div>
-                <div class="footer-links">
-                    <h3>Proyek</h3>
-                    <ul>
-                        <li><a href="https://rrcorp-nexus.netlify.app" target="_blank">RRCORP NEXUS</a></li>
-                        <li><a href="https://iacnnexus.netlify.app" target="_blank">IACNexus</a></li>
-                        <li><a href="#">DeepSeek Integration</a></li>
-                        <li><a href="#">OpenAI Collaboration</a></li>
-                    </ul>
+                <div class="footer-newsletter">
+                    <h3>Berlangganan Newsletter</h3>
+                    <p>Dapatkan update terbaru tentang aktivitas dan proyek saya.</p>
+                    <form>
+                        <div class="form-group">
+                            <input type="email" class="form-control" placeholder="Masukkan email Anda" required>
+                        </div>
+                        <button type="submit" class="btn">Berlangganan</button>
+                    </form>
                 </div>
-            </div>
-            <div class="social-links">
-                <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
-                <a href="#" class="social-link"><i class="fab fa-github"></i></a>
-                <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
-                <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
             </div>
             <div class="footer-bottom">
                 <p>&copy; 2023 Rahmat Agustiar. All Rights Reserved.</p>
@@ -1440,34 +1450,76 @@
         </div>
     </footer>
 
+    <!-- AI Assistant -->
+    <div class="ai-assistant" id="aiAssistant">
+        <i class="fas fa-robot"></i>
+    </div>
+
+    <div class="ai-chat-container" id="aiChat">
+        <div class="chat-header">
+            <h3>AI Assistant</h3>
+            <i class="fas fa-times" id="closeChat"></i>
+        </div>
+        <div class="chat-messages" id="chatMessages">
+            <div class="message ai-message">
+                Halo! Saya asisten AI Rahmat. Ada yang bisa saya bantu?
+            </div>
+        </div>
+        <div class="chat-input">
+            <input type="text" id="userInput" placeholder="Ketik pesan Anda...">
+            <button id="sendMessage"><i class="fas fa-paper-plane"></i></button>
+        </div>
+    </div>
+
     <script>
-        // Create stars background
-        function createStars() {
-            const stars = document.getElementById('stars');
-            const starsCount = 200;
-            
-            for (let i = 0; i < starsCount; i++) {
-                const star = document.createElement('div');
-                star.classList.add('star');
-                
-                const size = Math.random() * 3;
-                star.style.width = `${size}px`;
-                star.style.height = `${size}px`;
-                
-                star.style.left = `${Math.random() * 100}%`;
-                star.style.top = `${Math.random() * 100}%`;
-                
-                star.style.animationDuration = `${Math.random() * 3 + 2}s`;
-                star.style.animationDelay = `${Math.random() * 5}s`;
-                
-                stars.appendChild(star);
-            }
-        }
+        // Preloader
+        window.addEventListener('load', function() {
+            setTimeout(function() {
+                document.getElementById('preloader').style.opacity = '0';
+                setTimeout(function() {
+                    document.getElementById('preloader').style.display = 'none';
+                }, 500);
+            }, 1500);
+        });
+
+        // Initialize Particles.js
+        particlesJS('particles-js', {
+            particles: {
+                number: { value: 100, density: { enable: true, value_area: 800 } },
+                color: { value: "#00f3ff" },
+                shape: { type: "circle" },
+                opacity: { value: 0.5, random: true },
+                size: { value: 3, random: true },
+                line_linked: {
+                    enable: true,
+                    distance: 150,
+                    color: "#00f3ff",
+                    opacity: 0.4,
+                    width: 1
+                },
+                move: {
+                    enable: true,
+                    speed: 2,
+                    direction: "none",
+                    random: true,
+                    straight: false,
+                    out_mode: "out",
+                    bounce: false
+                }
+            },
+            interactivity: {
+                detect_on: "canvas",
+                events: {
+                    onhover: { enable: true, mode: "repulse" },
+                    onclick: { enable: true, mode: "push" },
+                    resize: true
+                }
+            },
+            retina_detect: true
+        });
 
         // Mobile menu toggle
         document.addEventListener('DOMContentLoaded', function() {
-            createStars();
-            
             const hamburger = document.querySelector('.hamburger');
             const navLinks = document.querySelector('.nav-links');
             
@@ -1491,6 +1543,81 @@
                     contactForm.reset();
                 });
             }
+
+            // Header scroll effect
+            window.addEventListener('scroll', function() {
+                const header = document.getElementById('header');
+                if (window.scrollY > 100) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+            });
+
+            // AI Chat Assistant
+            const aiAssistant = document.getElementById('aiAssistant');
+            const aiChat = document.getElementById('aiChat');
+            const closeChat = document.getElementById('closeChat');
+            const sendMessage = document.getElementById('sendMessage');
+            const userInput = document.getElementById('userInput');
+            const chatMessages = document.getElementById('chatMessages');
+
+            aiAssistant.addEventListener('click', function() {
+                aiChat.classList.toggle('active');
+            });
+
+            closeChat.addEventListener('click', function() {
+                aiChat.classList.remove('active');
+            });
+
+            function addMessage(message, isUser = false) {
+                const messageDiv = document.createElement('div');
+                messageDiv.classList.add('message');
+                messageDiv.classList.add(isUser ? 'user-message' : 'ai-message');
+                messageDiv.textContent = message;
+                chatMessages.appendChild(messageDiv);
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+            }
+
+            function getAIResponse(message) {
+                const lowerMessage = message.toLowerCase();
+                
+                if (lowerMessage.includes('halo') || lowerMessage.includes('hai') || lowerMessage.includes('hi')) {
+                    return 'Halo! Senang berbicara dengan Anda. Ada yang bisa saya bantu?';
+                } else if (lowerMessage.includes('nama')) {
+                    return 'Saya adalah asisten AI Rahmat Agustiar. Saya di sini untuk membantu Anda mengetahui lebih banyak tentang Rahmat dan karyanya.';
+                } else if (lowerMessage.includes('proyek') || lowerMessage.includes('kerja') || lowerMessage.includes('pekerjaan')) {
+                    return 'Rahmat saat ini memimpin RRCORP NEXUS yang fokus pada pengembangan AI, blockchain, dan solusi berkelanjutan.';
+                } else if (lowerMessage.includes('ai') || lowerMessage.includes('kecerdasan buatan')) {
+                    return 'Rahmat adalah pakar AI dengan spesialisasi dalam integrasi DeepSeek AI dan pengembangan solusi AI untuk kebaikan sosial.';
+                } else if (lowerMessage.includes('blockchain') || lowerMessage.includes('web3')) {
+                    return 'RRCORP NEXUS mengembangkan platform blockchain inovatif untuk ekonomi terdistribusi dan solusi berkelanjutan.';
+                } else if (lowerMessage.includes('kontak') || lowerMessage.includes('email') || lowerMessage.includes('telepon')) {
+                    return 'Anda dapat menghubungi Rahmat melalui email: rahmat@outerofficial@protommail.com atau telepon: +62 877 7111 4855';
+                } else {
+                    return 'Terima kasih atas pertanyaan Anda. Saya adalah asisten AI yang membantu menjelaskan tentang Rahmat Agustiar dan karya inovatifnya di bidang teknologi. Ada hal spesifik yang ingin Anda ketahui?';
+                }
+            }
+
+            sendMessage.addEventListener('click', function() {
+                const message = userInput.value.trim();
+                if (message) {
+                    addMessage(message, true);
+                    userInput.value = '';
+                    
+                    // Simulate AI thinking
+                    setTimeout(function() {
+                        const response = getAIResponse(message);
+                        addMessage(response);
+                    }, 1000);
+                }
+            });
+
+            userInput.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    sendMessage.click();
+                }
+            });
         });
     </script>
 </body>
