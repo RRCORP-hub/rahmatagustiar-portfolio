@@ -522,6 +522,91 @@
             margin-bottom: 20px;
         }
 
+        /* Projects Section */
+        .projects-section {
+            background: linear-gradient(135deg, rgba(10, 10, 42, 0.8), rgba(0, 0, 0, 0.9));
+            position: relative;
+            overflow: hidden;
+        }
+
+        .projects-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://images.unsplash.com/photo-1464983953574-0892a716854b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80') center/cover no-repeat;
+            opacity: 0.1;
+            z-index: -1;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+        }
+
+        .project-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            transition: var(--transition);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--secondary), var(--accent));
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+            border-color: var(--secondary);
+        }
+
+        .project-logo {
+            width: 100px;
+            height: 100px;
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: var(--secondary);
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 50%;
+        }
+
+        .project-features {
+            margin: 20px 0;
+            text-align: left;
+        }
+
+        .project-features li {
+            margin-bottom: 10px;
+            position: relative;
+            padding-left: 25px;
+        }
+
+        .project-features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--secondary);
+            font-weight: bold;
+        }
+
         /* Global Recognition Section */
         .global-section {
             background: linear-gradient(135deg, rgba(10, 10, 42, 0.8), rgba(0, 0, 0, 0.9));
@@ -741,6 +826,7 @@
             display: flex;
             gap: 15px;
             margin-top: 20px;
+            justify-content: center;
         }
 
         .social-link {
@@ -833,6 +919,10 @@
             .floating-robot {
                 display: none;
             }
+            
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
@@ -855,6 +945,7 @@
                 <ul class="nav-links">
                     <li><a href="#home">Beranda</a></li>
                     <li><a href="#about">Tentang</a></li>
+                    <li><a href="#projects">Proyek</a></li>
                     <li><a href="#experience">Pengalaman</a></li>
                     <li><a href="#education">Pendidikan</a></li>
                     <li><a href="#skills">Keahlian</a></li>
@@ -876,7 +967,7 @@
                 <h1>RAHMAT AGUSTIAR</h1>
                 <p>Visionary Leader & Innovator | Founder of RRCORP NEXUS | AI & Blockchain Pioneer | Global Change Maker</p>
                 <div class="hero-buttons">
-                    <a href="#achievements" class="btn">Lihat Prestasi</a>
+                    <a href="#projects" class="btn">Lihat Proyek</a>
                     <a href="#global" class="btn btn-accent">Pencapaian Global</a>
                 </div>
             </div>
@@ -928,6 +1019,57 @@
         </div>
     </section>
 
+    <!-- Projects Section -->
+    <section id="projects" class="section projects-section">
+        <div class="container">
+            <h2 class="section-title">Proyek Utama</h2>
+            
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-logo">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <h3>RRCORP NEXUS</h3>
+                    <p>Platform AI revolusioner yang menggabungkan kecerdasan buatan, blockchain, dan IoT untuk menciptakan ekosistem teknologi berkelanjutan.</p>
+                    
+                    <div class="project-features">
+                        <h4>Fitur Utama:</h4>
+                        <ul>
+                            <li>Integrasi DeepSeek AI untuk analisis data canggih</li>
+                            <li>Teknologi blockchain untuk keamanan dan transparansi</li>
+                            <li>IoT connectivity untuk monitoring real-time</li>
+                            <li>Dashboard analytics yang komprehensif</li>
+                            <li>API untuk integrasi dengan sistem lain</li>
+                        </ul>
+                    </div>
+                    
+                    <a href="https://rrcorp-nexus.netlify.app" class="btn" target="_blank">Kunjungi Website</a>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-logo">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <h3>IACNexus</h3>
+                    <p>Platform kolaborasi global untuk inovasi AI yang menghubungkan peneliti, developer, dan perusahaan dari seluruh dunia.</p>
+                    
+                    <div class="project-features">
+                        <h4>Fitur Utama:</h4>
+                        <ul>
+                            <li>Marketplace untuk model AI dan dataset</li>
+                            <li>Komunitas global AI researchers</li>
+                            <li>Hackathon dan kompetisi AI regularly</li>
+                            <li>Learning resources dan tutorial</li>
+                            <li>Collaboration tools untuk tim distributed</li>
+                        </ul>
+                    </div>
+                    
+                    <a href="https://iacnnexus.netlify.app" class="btn" target="_blank">Kunjungi Website</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Experience Section -->
     <section id="experience" class="section" style="background: rgba(0, 0, 0, 0.3);">
         <div class="container">
@@ -939,6 +1081,14 @@
                         <h3>Founder & CEO</h3>
                         <p>RRCORP NEXUS</p>
                         <p>Memimpin pengembangan platform AI dan blockchain revolusioner untuk menciptakan ekosistem teknologi berkelanjutan.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">2023 - Sekarang</div>
+                        <h3>Lead Developer</h3>
+                        <p>IACNexus</p>
+                        <p>Mengembangkan platform kolaborasi global untuk inovasi AI dan penelitian kecerdasan buatan.</p>
                     </div>
                 </div>
                 <div class="timeline-item">
@@ -955,14 +1105,6 @@
                         <h3>Community Coordinator</h3>
                         <p>Local Labor Aesh - Jakarta</p>
                         <p>Mengadvokasi hak-hak pekerja perkebunan dan buruh migran.</p>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <div class="timeline-date">2006 - 2009</div>
-                        <h3>Penggerak Sosial Digitalisasi Komunitas</h3>
-                        <p>Jakarta</p>
-                        <p>Memberikan transformasi digital untuk komunitas dan akses terhadap teknologi.</p>
                     </div>
                 </div>
             </div>
@@ -1045,7 +1187,7 @@
                         <i class="fas fa-laptop-code"></i>
                     </div>
                     <h3>Digital & Teknologi</h3>
-                    <p>Transformasi digital dan pemanfaatan teknologi untuk sosial.</p>
+                    <p>Transformasi digital и pemanfaatan teknologi untuk sosial.</p>
                 </div>
             </div>
         </div>
@@ -1227,6 +1369,7 @@
                         <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
                         <a href="#" class="social-link"><i class="fab fa-github"></i></a>
                         <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
                     </div>
                 </div>
                 <div class="contact-form">
@@ -1261,17 +1404,13 @@
                 <div class="footer-about">
                     <div class="footer-logo">Rahmat<span>Agustiar</span></div>
                     <p>Visionary Leader & Innovator | Founder of RRCORP NEXUS | AI & Blockchain Pioneer | Global Change Maker</p>
-                    <div class="social-links">
-                        <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-github"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
-                    </div>
                 </div>
                 <div class="footer-links">
                     <h3>Tautan Cepat</h3>
                     <ul>
                         <li><a href="#home">Beranda</a></li>
                         <li><a href="#about">Tentang</a></li>
+                        <li><a href="#projects">Proyek</a></li>
                         <li><a href="#experience">Pengalaman</a></li>
                         <li><a href="#education">Pendidikan</a></li>
                         <li><a href="#achievements">Prestasi</a></li>
@@ -1279,16 +1418,21 @@
                         <li><a href="#contact">Kontak</a></li>
                     </ul>
                 </div>
-                <div class="footer-newsletter">
-                    <h3>Berlangganan Newsletter</h3>
-                    <p>Dapatkan update terbaru tentang aktivitas dan proyek saya.</p>
-                    <form>
-                        <div class="form-group">
-                            <input type="email" class="form-control" placeholder="Masukkan email Anda" required>
-                        </div>
-                        <button type="submit" class="btn">Berlangganan</button>
-                    </form>
+                <div class="footer-links">
+                    <h3>Proyek</h3>
+                    <ul>
+                        <li><a href="https://rrcorp-nexus.netlify.app" target="_blank">RRCORP NEXUS</a></li>
+                        <li><a href="https://iacnnexus.netlify.app" target="_blank">IACNexus</a></li>
+                        <li><a href="#">DeepSeek Integration</a></li>
+                        <li><a href="#">OpenAI Collaboration</a></li>
+                    </ul>
                 </div>
+            </div>
+            <div class="social-links">
+                <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
             </div>
             <div class="footer-bottom">
                 <p>&copy; 2023 Rahmat Agustiar. All Rights Reserved.</p>
@@ -1350,4 +1494,4 @@
         });
     </script>
 </body>
-                </html>
+</html>
