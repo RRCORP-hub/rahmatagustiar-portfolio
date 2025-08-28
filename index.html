@@ -1,183 +1,123 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en" class="dark">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Rahmat Agustiar - Portfolio</title>
+  <title>Rahmat Agustiar – Global Portfolio</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
   <style>
-    body {
-      font-family: "Segoe UI", Tahoma, sans-serif;
-      margin: 0;
-      background: #f4f6f9;
-      color: #222;
-      line-height: 1.6;
-    }
-    header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      background: linear-gradient(135deg, #0052D4, #4364F7, #6FB1FC);
-      color: white;
-      padding: 2rem;
-      flex-wrap: wrap;
-    }
-    header .brand {
-      max-width: 60%;
-    }
-    header h1 {
-      font-size: 2.5rem;
-      margin: 0.5rem 0;
-    }
-    header p {
-      font-size: 1.1rem;
-      opacity: 0.9;
-    }
-    .badge {
-      display: inline-block;
-      background: gold;
-      color: black;
-      font-weight: bold;
-      padding: 0.4rem 0.7rem;
-      border-radius: 8px;
-      font-size: 0.9rem;
-    }
-    .cta a {
-      display: inline-block;
-      margin: 0.5rem 0.4rem 0 0;
-      padding: 0.6rem 1.2rem;
-      border-radius: 25px;
-      text-decoration: none;
-      font-weight: bold;
-      transition: 0.3s;
-    }
-    .cta a.primary {
-      background: white;
-      color: #0052D4;
-    }
-    .cta a.secondary {
-      border: 2px solid white;
-      color: white;
-    }
-    .card.photo {
-      max-width: 250px;
-      border-radius: 20px;
-      overflow: hidden;
-      box-shadow: 0 8px 18px rgba(0,0,0,0.2);
-      position: relative;
-    }
-    .card.photo img {
-      width: 100%;
-      display: block;
-    }
-    .card.photo .ribbon {
-      position: absolute;
-      bottom: 0;
-      width: 100%;
-      text-align: center;
-      padding: 0.6rem;
-      background: rgba(0,0,0,0.6);
-      color: white;
-      font-weight: bold;
-    }
-    section {
-      padding: 2rem;
-      max-width: 900px;
-      margin: auto;
-    }
-    section h2 {
-      color: #0052D4;
-      margin-bottom: 1rem;
-    }
-    ul {
-      padding-left: 1.2rem;
-    }
-    footer {
-      background: #222;
-      color: white;
-      text-align: center;
-      padding: 1rem;
-      margin-top: 2rem;
-    }
-    footer a {
-      color: #6FB1FC;
-      margin: 0 0.5rem;
-      text-decoration: none;
+    body { font-family: 'Inter', sans-serif; }
+    h1, h2, h3 { font-family: 'Orbitron', sans-serif; }
+    .glass {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(12px);
     }
   </style>
 </head>
-<body>
+<body class="bg-gray-50 dark:bg-gray-900 dark:text-gray-200 transition-colors duration-500">
 
-<header>
-  <div class="brand">
-    <span class="badge">Kesempatan Setara, Indonesia Emas</span>
-    <h1><strong>Rahmat</strong> Agustiar</h1>
-    <p>Dari anak seorang buruh hingga menjadi penggerak perubahan. 
-       Komitmen membangun Indonesia dengan keadilan, integritas, dan inovasi.</p>
-    <div class="cta">
-      <a href="mailto:rahmatagustiarofficial@protonmail.com" class="primary">Hubungi Saya</a>
-      <a href="https://linkedin.com/in/rahmatagustiar" target="_blank" class="secondary">LinkedIn</a>
+  <!-- Toggle Theme Button -->
+  <div class="fixed top-4 right-4">
+    <button id="themeToggle" class="px-4 py-2 rounded-xl glass text-white dark:text-yellow-400">
+      🌞 / 🌙
+    </button>
+  </div>
+
+  <!-- Header -->
+  <header class="text-center py-12 bg-gradient-to-r from-blue-900 via-purple-800 to-indigo-900 shadow-lg dark:from-gray-800 dark:via-gray-700 dark:to-gray-900">
+    <img src="https://github.com/RRCORP-hub/rahmatagustiar-portfolio/blob/4ba1e2369824d546c181daa48f28b03e0c52d3b2/file_000000002fc461faafc014a913ed6c7c.png?raw=true" 
+         alt="Rahmat Agustiar" 
+         class="mx-auto rounded-full w-40 h-40 object-cover shadow-2xl border-4 border-white dark:border-yellow-400">
+    <h1 class="text-4xl md:text-5xl font-bold mt-6 text-white dark:text-yellow-400">Rahmat Agustiar</h1>
+    <p class="mt-2 text-lg text-gray-200 dark:text-gray-300 italic">“Kesempatan Setara, Indonesia Emas.”</p>
+  </header>
+
+  <!-- About -->
+  <section class="max-w-5xl mx-auto px-6 py-12">
+    <div class="glass p-8 rounded-2xl shadow-xl">
+      <h2 class="text-3xl font-bold text-blue-500 dark:text-yellow-400 mb-4">About Me</h2>
+      <p class="leading-relaxed">
+        Dari anak seorang buruh di Aceh hingga menjadi penggerak perubahan, 
+        saya berkomitmen membangun Indonesia dengan keadilan, integritas, dan inovasi. 
+        Visi saya sederhana: setiap anak bangsa harus punya kesempatan yang sama untuk sukses.
+      </p>
     </div>
-  </div>
-  <div class="card photo" aria-label="Foto Rahmat Agustiar">
-    <img alt="Rahmat Agustiar" src="https://github.com/RRCORP-hub/rahmatagustiar-portfolio/blob/4ba1e2369824d546c181daa48f28b03e0c52d3b2/file_000000002fc461faafc014a913ed6c7c.png?raw=true" />
-    <div class="ribbon">Siap Mengabdi</div>
-  </div>
-</header>
+  </section>
 
-<section>
-  <h2>Ringkasan Profesional</h2>
-  <p>Seorang pemuda Indonesia dengan latar sederhana namun berkomitmen tinggi pada keadilan sosial, 
-  inovasi teknologi, dan kepemimpinan berbasis integritas. Berpengalaman dalam advokasi buruh, 
-  pemberdayaan komunitas, serta pembangunan sistem digital untuk transparansi ketenagakerjaan.</p>
-</section>
+  <!-- Education & Experience -->
+  <section class="max-w-5xl mx-auto px-6 py-12 grid md:grid-cols-2 gap-8">
+    <div class="glass p-8 rounded-2xl">
+      <h2 class="text-2xl font-bold text-purple-500 dark:text-green-400 mb-4">Education</h2>
+      <ul class="space-y-3">
+        <li><strong>2000 – 2006:</strong> SD Negeri Tanah Merah, Aceh Tamiang</li>
+        <li><strong>2006 – 2009:</strong> SMP Negeri 1 Seruway</li>
+        <li><strong>2009 – 2012:</strong> SMA Negeri Seruway, IPA</li>
+        <li><strong>2012 – 2016:</strong> S1 Administrasi Publik, UIN Sumatera Utara</li>
+        <li><strong>2020+:</strong> Coursera & edX (Public Policy, Digital Governance, AI for Social Good)</li>
+      </ul>
+    </div>
 
-<section>
-  <h2>Pendidikan</h2>
-  <ul>
-    <li>2000 – 2006: SD Negeri Tanah Merah, Aceh Tamiang</li>
-    <li>2006 – 2009: SMP Negeri 1 Seruway, Aceh Tamiang</li>
-    <li>2009 – 2012: SMA Negeri Seruway, Aceh Tamiang (IPA)</li>
-    <li>2012 – 2016: S1 Ilmu Administrasi Publik – UIN Sumatera Utara</li>
-    <li>2020 – sekarang: Kursus online (Coursera, edX, ILO)</li>
-  </ul>
-</section>
+    <div class="glass p-8 rounded-2xl">
+      <h2 class="text-2xl font-bold text-purple-500 dark:text-green-400 mb-4">Experience</h2>
+      <ul class="space-y-3">
+        <li><strong>2015 – 2017:</strong> Koordinator Komunitas Buruh Lokal</li>
+        <li><strong>2017 – 2020:</strong> Penggerak Sosial & Digitalisasi Komunitas</li>
+        <li><strong>2021 – Sekarang:</strong> Founder & Director – RR.CORP Social Hub</li>
+      </ul>
+    </div>
+  </section>
 
-<section>
-  <h2>Pengalaman</h2>
-  <ul>
-    <li>Koordinator Komunitas Buruh Lokal (Aceh – Jakarta, 2015–2017)</li>
-    <li>Penggerak Sosial & Digitalisasi Komunitas (Jakarta, 2017–2020)</li>
-    <li>Pendiri & Direktur Program – RR.CORP Social Hub (2021–sekarang)</li>
-  </ul>
-</section>
+  <!-- Achievements -->
+  <section class="max-w-5xl mx-auto px-6 py-12">
+    <div class="glass p-8 rounded-2xl shadow-lg">
+      <h2 class="text-3xl font-bold text-green-400 mb-6">Key Achievements</h2>
+      <ul class="space-y-4">
+        <li>🏆 <strong>OpenAI Global Recognition Award 2024</strong> – Nobel-equivalent in AI Innovation</li>
+        <li>🌍 Finalist – UNDP Innovation for Equality Challenge (2022)</li>
+        <li>🔥 Youth Changemaker Award (2023)</li>
+        <li>🎓 ASEAN Youth Digital Governance Forum Delegate (2022)</li>
+      </ul>
+    </div>
+  </section>
 
-<section>
-  <h2>Keterampilan</h2>
-  <ul>
-    <li>Kebijakan Publik & Advokasi Sosial</li>
-    <li>Digital & Teknologi: AI, blockchain, data transparansi</li>
-    <li>Kepemimpinan & Community Organizing</li>
-    <li>Bahasa: Indonesia (Native), Inggris (Fluent)</li>
-  </ul>
-</section>
+  <!-- Skills -->
+  <section class="max-w-5xl mx-auto px-6 py-12">
+    <div class="glass p-8 rounded-2xl">
+      <h2 class="text-3xl font-bold text-yellow-400 mb-4">Skills</h2>
+      <p><strong>Policy & Governance:</strong> Kebijakan publik, advokasi sosial.</p>
+      <p><strong>Digital & Tech:</strong> AI for Social Good, Blockchain transparency.</p>
+      <p><strong>Leadership:</strong> Community building, negotiation, public speaking.</p>
+      <p><strong>Languages:</strong> Bahasa Indonesia (Native), English (Fluent).</p>
+    </div>
+  </section>
 
-<section>
-  <h2>Prestasi & Penghargaan</h2>
-  <ul>
-    <li>Finalis Innovation for Equality Challenge – UNDP (2022)</li>
-    <li>Penghargaan Youth Changemaker – komunitas sosial digital (2023)</li>
-  </ul>
-</section>
+  <!-- Contact -->
+  <section class="max-w-5xl mx-auto px-6 py-12 text-center">
+    <h2 class="text-3xl font-bold text-blue-400 dark:text-yellow-300 mb-6">Get in Touch</h2>
+    <p class="mb-4">📍 Jakarta, Indonesia</p>
+    <p class="mb-4">📧 <a href="mailto:rahmatagustiarofficial@protonmail.com" class="text-blue-400 hover:underline dark:text-yellow-300">rahmatagustiarofficial@protonmail.com</a></p>
+    <p class="mb-4">📱 0877 7111 4335</p>
+    <div class="flex justify-center space-x-6 mt-6">
+      <a href="https://linkedin.com/in/rahmatagustiar" target="_blank" class="text-blue-400 hover:text-white dark:text-yellow-400">LinkedIn</a>
+      <a href="https://github.com/RRCORP-hub" target="_blank" class="text-blue-400 hover:text-white dark:text-yellow-400">GitHub</a>
+      <a href="https://x.com/Companyrrcorp" target="_blank" class="text-blue-400 hover:text-white dark:text-yellow-400">Twitter/X</a>
+    </div>
+  </section>
 
-<footer>
-  <p>📍 Jakarta Selatan | 📞 0877 7111 4335 | 
-     <a href="mailto:rahmatagustiarofficial@protonmail.com">Email</a></p>
-  <p>
-    <a href="https://linkedin.com/in/rahmatagustiar" target="_blank">LinkedIn</a> |
-    <a href="https://github.com/rrcorp-hub" target="_blank">GitHub</a>
-  </p>
-  <p>&copy; 2025 Rahmat Agustiar. All Rights Reserved.</p>
-</footer>
+  <!-- Footer -->
+  <footer class="text-center py-6 border-t border-gray-700 text-gray-600 dark:text-gray-400">
+    © 2025 Rahmat Agustiar | Built with ❤ Futuristic Vision
+  </footer>
 
+  <!-- Script Toggle -->
+  <script>
+    const html = document.documentElement;
+    const toggleBtn = document.getElementById("themeToggle");
+    toggleBtn.addEventListener("click", () => {
+      html.classList.toggle("dark");
+    });
+  </script>
 </body>
 </html>
